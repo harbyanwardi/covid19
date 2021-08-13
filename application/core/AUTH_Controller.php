@@ -10,9 +10,9 @@ class AUTH_Controller extends CI_Controller {
 		
 		$this->session->set_flashdata('segment', explode('/', $this->uri->uri_string()));
 
-		if ($this->session->userdata('status') == '') {
-			redirect('Auth');
-		}
+		// if ($this->session->userdata('status') == '') {
+		// 	redirect('Auth');
+		// }
 	}
 
 	public function updateProfil() {

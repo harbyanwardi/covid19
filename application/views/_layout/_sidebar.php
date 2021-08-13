@@ -5,10 +5,10 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="<?php echo base_url(); ?>assets/img/<?php echo $userdata->foto; ?>" class="img-circle" alt="User Image">
+        
       </div>
       <div class="pull-left info">
-        <p><?php echo $userdata->nama; ?></p>
+        <p>User</p>
         <!-- Status -->
         <a href="<?php echo base_url(); ?>assets/#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
@@ -21,34 +21,16 @@
 
       <li <?php if ($page == 'home') {echo 'class="active"';} ?>>
         <a href="<?php echo base_url('Home'); ?>">
-          <i class="fa fa-home"></i>
-          <span>Home</span>
-        </a>
-      </li>
-      <li <?php if ($page == 'pegawai') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('SuratController'); ?>">
-          <i class="fa fa-envelope-o"></i>
-          <span>Buat Surat</span>
-        </a>
-      </li>
-      <li <?php if ($page == 'pegawai') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Pegawai'); ?>">
-          <i class="fa fa-user"></i>
-          <span>Data Pegawai</span>
-        </a>
-      </li>
-
-      <li <?php if ($page == 'posisi') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Posisi'); ?>">
-          <i class="fa fa-briefcase"></i>
-          <span>Data Posisi</span>
+          <i class="fa fa-newspaper-o"></i>
+          <span>Corona Update</span>
         </a>
       </li>
       
-      <li <?php if ($page == 'kota') {echo 'class="active"';} ?>>
-        <a href="<?php echo base_url('Kota'); ?>">
+      
+      <li <?php if ($page == 'corona') {echo 'class="active"';} ?>>
+        <a href="<?php echo base_url('corona'); ?>">
           <i class="fa fa-location-arrow"></i>
-          <span>Data Kota</span>
+          <span>Availability Hospital</span>
         </a>
       </li>
     </ul>

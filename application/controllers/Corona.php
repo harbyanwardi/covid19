@@ -1,23 +1,45 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kota extends AUTH_Controller {
+class Corona extends AUTH_Controller {
 	public function __construct() {
 		parent::__construct();
+		$this->load->library('curl');
 		$this->load->model('M_kota');
 	}
 
-	public function index() {
+	public function index(){
 		$data['userdata'] 	= $this->userdata;
-		$data['dataKota'] 	= $this->M_kota->select_all();
+		$data['page'] 		= "covid";
+		$data['judul'] 		= "News Update Covid";
+		$data['deskripsi'] 	= "Covid 19";
+        $data['dataProvince'] = json_decode($this->curl->simple_get('https://rs-bed-covid-api.vercel.app/api/get-provinces'), true);
+        //print_r($data['dataProvince']); exit();
+       
+        // foreach ($data['dataProvince']['provinces'] as $kota) {
+        //  echo $kota['name'];
+        // }
+        $this->template->views('covid/home',$data);
+        
+    }
 
-		$data['page'] 		= "kota";
-		$data['judul'] 		= "Data Kota";
-		$data['deskripsi'] 	= "Manage Data Kota";
+    public function getKota() {
+    	$prov_id = $this->input->post('id',TRUE);
+    	$url = 'https://rs-bed-covid-api.vercel.app/api/get-cities?provinceid='.$prov_id;
+		//$datakota = json_decode($this->curl->simple_get($url), true);
+		$datakota = json_decode($this->curl->simple_get($url), true);
+		$kota = $datakota['cities'];
+		echo json_encode($kota);
+	}
 
-		$data['modal_tambah_kota'] = show_my_modal('modals/modal_tambah_kota', 'tambah-kota', $data);
-
-		$this->template->views('kota/home', $data);
+	public function getBed() {
+		$city_id = $this->input->post('id',TRUE);
+		$province_id = $this->input->post('province_id',TRUE);
+		$url = "https://rs-bed-covid-api.vercel.app/api/get-hospitals?provinceid=$province_id&cityid=$city_id&type=1";
+		//echo $url; exit();
+		$datakota = json_decode($this->curl->simple_get($url), true);
+		$kota = $datakota['hospitals'];
+		echo json_encode($kota);
 	}
 
 	public function tampil() {

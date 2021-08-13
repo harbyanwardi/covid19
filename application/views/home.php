@@ -1,122 +1,118 @@
 <div class="row">
   <div class="col-lg-4 col-xs-6">
+    <h1>INDONESIA <i class="ion ion-flag"></i></h1>
+  </div>
+</div>
+
+<div class="row">
+  
+  <div class="col-lg-4 col-xs-6">
     <div class="small-box bg-aqua">
       <div class="inner">
-        <h3><?php echo $jml_pegawai; ?></h3>
+        <h3><?php echo $dirawat; ?></h3>
 
-        <p>Jumlah Pegawai</p>
+        <p>Pasien Dirawat</p>
       </div>
       <div class="icon">
-        <i class="ion ion-ios-contact"></i>
+        <i class="ion ion-alert-circled"></i>
       </div>
-      <a href="<?php echo base_url('Pegawai') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="<?php echo base_url('Pegawai') ?>" class="small-box-footer"></a>
     </div>
   </div>
   <div class="col-lg-4 col-xs-6">
     <div class="small-box bg-green">
       <div class="inner">
-        <h3><?php echo $jml_posisi; ?></h3>
+        <h3><?php echo $sembuh; ?></h3>
 
-        <p>Jumlah Posisi</p>
+        <p>Pasien Sembuh</p>
       </div>
       <div class="icon">
-        <i class="ion ion-ios-briefcase-outline"></i>
+        <i class="ion ion-android-happy"></i>
       </div>
-      <a href="<?php echo base_url('Posisi') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+     <a href="<?php echo base_url('Pegawai') ?>" class="small-box-footer"></a>
     </div>
   </div>
   <div class="col-lg-4 col-xs-6">
     <div class="small-box bg-yellow">
       <div class="inner">
-        <h3><?php echo $jml_kota; ?></h3>
+        <h3><?php echo $positif; ?></h3>
 
-        <p>Jumlah Kota</p>
+        <p>Pasien Positif</p>
       </div>
       <div class="icon">
-        <i class="ion ion-location"></i>
+        <i class="ion ion-android-add-circle"></i>
       </div>
-      <a href="<?php echo base_url('Kota') ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      <a href="<?php echo base_url('Pegawai') ?>" class="small-box-footer"></a>
+    </div>
+  </div>
+  <div class="col-lg-4 col-xs-6">
+    <div class="small-box bg-red">
+      <div class="inner">
+        <h3><?php echo $meninggal; ?></h3>
+
+        <p>Korban Meninggal</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-android-hand"></i>
+      </div>
+      <a href="<?php echo base_url('Pegawai') ?>" class="small-box-footer"></a>
     </div>
   </div>
 
-  <div class="col-lg-6 col-xs-12">
-    <div class="box box-info">
-      <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
-        <h3 class="box-title">Statistik <small>Data Posisi</small></h3>
+  
+</div>
 
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-        </div>
-      </div>
-      <div class="box-body">
-        <canvas id="data-posisi" style="height:250px"></canvas>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-lg-6 col-xs-12">
-    <div class="box box-primary">
-      <div class="box-header with-border">
-        <i class="fa fa-briefcase"></i>
-        <h3 class="box-title">Statistik <small>Data Kota</small></h3>
-
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-          </button>
-          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-        </div>
-      </div>
-      <div class="box-body">
-        <canvas id="data-kota" style="height:250px"></canvas>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-lg-4 col-xs-6">
+    <h1>GLOBAL <i class="ion ion-android-globe"></i></h1>
   </div>
 </div>
 
-<script src="<?php echo base_url(); ?>assets/plugins/chartjs/Chart.min.js"></script>
-<script>
-  //data posisi
-  var pieChartCanvas = $("#data-posisi").get(0).getContext("2d");
-  var pieChart = new Chart(pieChartCanvas);
-  var PieData = <?php echo $data_posisi; ?>;
+<div class="row">
+  
+  
+  <div class="col-lg-4 col-xs-6">
+    <div class="small-box bg-green">
+      <div class="inner">
+        <h3><?php echo $globalsembuh; ?></h3>
 
-  var pieOptions = {
-    segmentShowStroke: true,
-    segmentStrokeColor: "#fff",
-    segmentStrokeWidth: 2,
-    percentageInnerCutout: 50,
-    animationSteps: 100,
-    animationEasing: "easeOutBounce",
-    animateRotate: true,
-    animateScale: false,
-    responsive: true,
-    maintainAspectRatio: true,
-    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
-  };
+        <p>Pasien Sembuh</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-android-happy"></i>
+      </div>
+     <a href="<?php echo base_url('Pegawai') ?>" class="small-box-footer"></a>
+    </div>
+  </div>
+  <div class="col-lg-4 col-xs-6">
+    <div class="small-box bg-yellow">
+      <div class="inner">
+        <h3><?php echo $glob_positif; ?></h3>
 
-  pieChart.Doughnut(PieData, pieOptions);
+        <p>Pasien Positif</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-android-add-circle"></i>
+      </div>
+      <a href="<?php echo base_url('Pegawai') ?>" class="small-box-footer"></a>
+    </div>
+  </div>
+  <div class="col-lg-4 col-xs-6">
+    <div class="small-box bg-red">
+      <div class="inner">
+        <h3><?php echo $globalmeninggal; ?></h3>
 
-  //data kota
-  var pieChartCanvas = $("#data-kota").get(0).getContext("2d");
-  var pieChart = new Chart(pieChartCanvas);
-  var PieData = <?php echo $data_kota; ?>;
+        <p>Korban Meninggal</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-android-hand"></i>
+      </div>
+      <a href="<?php echo base_url('Pegawai') ?>" class="small-box-footer"></a>
+    </div>
+  </div>
 
-  var pieOptions = {
-    segmentShowStroke: true,
-    segmentStrokeColor: "#fff",
-    segmentStrokeWidth: 2,
-    percentageInnerCutout: 50,
-    animationSteps: 100,
-    animationEasing: "easeOutBounce",
-    animateRotate: true,
-    animateScale: false,
-    responsive: true,
-    maintainAspectRatio: true,
-    legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
-  };
+  
+</div>
 
-  pieChart.Doughnut(PieData, pieOptions);
+
 </script>

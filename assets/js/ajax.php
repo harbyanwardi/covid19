@@ -203,6 +203,21 @@
 		})
 	})
 
+	$(document).on("click", ".detail-dataSurat", function() {
+		var id = $(this).attr("data-id");
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('SuratController/detail'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#tempat-modal').html(data);
+			
+			$('#detail-surat').modal('show');
+		})
+	})
+
 	$('#form-tambah-kota').submit(function(e) {
 		var data = $(this).serialize();
 
@@ -432,6 +447,20 @@
 		})
 	})
 
+	$(document).on("click", ".update-dataSurat", function() {
+		var id = $(this).attr("data-id");
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('SuratController/update'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#tempat-modal').html(data);
+			$('#update-surat').modal('show');
+		})
+	})
+
 	// $(document).on("click", ".detail-dataTeam", function() {
 	// 	var id = $(this).attr("data-id");
 		
@@ -525,6 +554,33 @@
 	  $('.form-msg').html('');
 	})
 
+	$(document).on('submit', '#form-update-surat', function(e){
+		//var data = $(this).serialize();
+		e.preventDefault(); 
+                 $.ajax({
+                     url:'<?php echo base_url();?>SuratController/prosesUpdate',
+                     type:"post",
+                     data:new FormData(this),
+                     processData:false,
+                     contentType:false,
+                     cache:false,
+                     async:false,
+                      success: function(data){
+                      	var out = jQuery.parseJSON(data);
+                      		tampilSurat();
+                          	if (out.status == 'form') {
+								$('.form-msg').html(out.msg);
+								effect_msg_form();
+							} else {
+								document.getElementById("form-update-surat").reset();
+								$('#update-surat').modal('hide');
+								$('.msg').html(out.msg);
+								effect_msg();
+							}
+                   }
+                 });
+	});
+
 	$(document).on('submit', '#form-update-team', function(e){
 		//var data = $(this).serialize();
 		e.preventDefault(); 
@@ -555,6 +611,7 @@
 	$(document).on("click", ".konfirmasiHapus-team", function() {
 		id_team = $(this).attr("data-id");
 	})
+
 	$(document).on("click", ".hapus-dataTeam", function() {
 		var id = id_team;
 		
@@ -566,6 +623,26 @@
 		.done(function(data) {
 			$('#konfirmasiHapus').modal('hide');
 			tampilTeam();
+			$('.msg').html(data);
+			effect_msg();
+		})
+	})
+
+	$(document).on("click", ".konfirmasiHapus-surat", function() {
+		id_team = $(this).attr("data-id");
+	})
+
+	$(document).on("click", ".hapus-dataSurat", function() {
+		var id = id_team;
+		
+		$.ajax({
+			method: "POST",
+			url: "<?php echo base_url('SuratController/delete'); ?>",
+			data: "id=" +id
+		})
+		.done(function(data) {
+			$('#konfirmasiHapus').modal('hide');
+			tampilSurat();
 			$('.msg').html(data);
 			effect_msg();
 		})
